@@ -4,7 +4,12 @@ module.exports = function(app, conn){
 
   /* root */
   router.get('/', (req, res) => {
-    res.redirect('/news');
+    res.render('news/index');
+  });
+
+  /*baking*/
+  router.get('/baking', (req, res) => {
+    res.render('news/baking');
   });
 
   return router;

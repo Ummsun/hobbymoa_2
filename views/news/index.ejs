@@ -1,55 +1,90 @@
+
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <title>Index</title>
+  </head>
+  <body>
+
 <%- include('includes/header'); -%>
 <%- include('includes/nav'); -%>
-
-<div class="container">
-
-  <h1>News</h1>
-  <ul class="nav nav-pills">
-    <li class="nav-item">
-      <a class="nav-link <% if (!selectedCategory) { %>active<% } %>" href="/news">전체</a>
-    </li>
-    <% for(var i=0; i < category.length; i++) { %>
-      <a class="nav-link <% if (selectedCategory==category[i].id) { %>active<% } %>" href="?category=<%= category[i].id %>"><%= category[i].title %></a>
-    <% } %>
-  </ul>
-
-  <% if (news.length>0) { %>
-  <ul class="list-unstyled">
-    <% for(var i=0; i < news.length; i++) { %>
-    <li class="media">
-
-      <% if (typeof news[i].upload !== 'undefined' && news[i].upload) { %>
-        <a href="/news/<%= news[i].id %>"><img class="mr-3" src="/uploads/<%= news[i].upload %>"width="128"></a>
-      <% } %>
-
-      <div class="media-body">
-        <h5 class="mt-0 mb-1"><a href="/news/<%= news[i].id %>"><%= news[i].title %></a></h5>
-        <%= news[i].category_title %> /
-        <%= news[i].author %>
-      </div>
-    </li>
-    <% } %>
-  </ul>
-
-  <% } else { %>
-    <div class="card">
-      <div class="card-header">
-        Alert!
-      </div>
-      <div class="card-body">
-        <blockquote class="blockquote mb-0">
-          <p>Please add new article</p>
-        </blockquote>
-      </div>
-    </div>
-  <% } %>
-
-  <div class="btn-toolbar justify-content-between" role="toolbar" aria-label="Toolbar with button groups">
-    <div class="btn-group" role="group" aria-label="First group">
-    </div>
+  
     <div class="input-group">
-      <a href="/news/add" class="btn btn-outline-success">기사작성</a>
-    </div>
+        <input type="text" class="form-control" placeholder="검색 키워드를 입력하세요!">
+        <span class="input-group-btn">
+          <button class="btn btn-secondary" type="button">찾기</button>
+        </span>
+      </div>
+<h2>추천 클래스</h2>
+<div style="display: block; width:1200px; margin:0 auto;  position:relative;">
+    <div class="row">
+        <div class="coll-sm-3">
+    <div>
+      <div class="card" style="width: 18rem;" >
+        <a href="/baking">
+        <img src="static/img/클래스101베이킹.jpg" style="width: auto; height: 18rem;" class="card-img-top" alt="...">
+        <div class="card-body">
+          <p class="card-text">청미당과 함께, 쉽고 건강하고 맛있는 쌀 베이킹 </p>
+          <p>총 339,370원</p>
+          <p>클래스101</p>
+        </div>
+      </a>
+      </div>   
+    </div> 
+      </div>
+              
+      <div class="coll-sm-3">
+      <div>
+        <div class="card" style="width: 18rem;" a href="...">
+          <img src="static/img/프립서핑.jpg" style="width: auto; height: 18rem;" class="card-img-top" alt="...">
+          <div class="card-body">
+            <p class="card-text">제주 JJ서프스쿨 체험 서핑 강습 </p>
+            <p>보드, 웻수트 렌트 3시간 40,000원</p>
+            <p>프립</p>
+          </div>
+        </div>   
+      </div> 
+        </div>
+    
+      <div class="coll-sm-3">
+        <div>
+          <div class="card" style="width: 18rem;" a href="...">
+            <img src="static/img/클래스101드로잉.jpg" style="width: auto; height: 18rem;" class="card-img-top" alt="...">
+            <div class="card-body">
+              <p class="card-text">반려동물과 집사의 일상, 아이패드 드로잉 </p>
+              <p>오픈 예정</p>
+              <p>클래스101</p>
+            </div>
+          </div>   
+        </div> 
+        </div>
+
+      <div class="coll-sm-3">
+    <div>
+      <div class="card" style="width: 18rem;" a href="news/">
+        <img src="static/img/베이킹.jpg" style="width: auto; height: 18rem;" class="card-img-top" alt="...">
+        <div class="card-body">
+          <p class="card-text">전체 클래스 더 알아보기</p>
+        </div>
+      </div>   
+    </div> 
+        </div>
   </div>
 </div>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  </body>
+</html>
 <%- include('includes/footer'); -%>
