@@ -12,5 +12,10 @@ module.exports = function(app, conn){
     res.render('news/baking');
   });
 
+  /*comment*/
+  router.get('/comment', (req, res) => {
+    res.render('news/comment');
+  });
+
   return router;
 };
