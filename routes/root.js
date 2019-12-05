@@ -2,8 +2,14 @@ module.exports = function(app, conn){
   var express = require('express');
   var router = express.Router();
 
+/* root */
+router.get('/', (req, res) => {
+  res.render('news/landing');
+});
+
+  
   /* root */
-  router.get('/', (req, res) => {
+  router.get('/index', (req, res) => {
     res.render('news/index');
   });
 
