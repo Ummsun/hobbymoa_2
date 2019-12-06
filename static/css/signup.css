@@ -4,6 +4,7 @@ body {
 }
 
 body {
+  font-family: 'Do Hyeon', sans-serif;
   display: -ms-flexbox;
   display: flex;
   -ms-flex-align: center;
