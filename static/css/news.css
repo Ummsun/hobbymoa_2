@@ -1,7 +1,19 @@
 .navbar {
   margin-bottom: 20px;
+  background-color: #ffffff !important;
 }
 
+.navbar .navbar-brand{
+  color: #7049ff
+}
+
+.navbar .navbar-nav li a{
+  color:#8f71ff !important;
+}
+
+.navbar .nav-link{
+  color:#8f71ff
+}
 
 .justify-content-between {
   margin-top:20px;
