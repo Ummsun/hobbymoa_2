@@ -140,7 +140,7 @@ module.exports = function(app, conn, upload) {
     });
   });
 
-  /* 상세보기 */
+  /* 상세보기 여기를 수정해야 comment 페이지 테이블 안에 노출이 되나*/
   router.get('/:id', (req, res) => {
     var id = req.params.id;
     var sql = "SELECT a.*, c.title as `category_title` "
@@ -170,7 +170,7 @@ module.exports = function(app, conn, upload) {
     });
   });
 
-  /* COMMENT 데이터 DB INSERT */
+  /* COMMENT 데이터 DB INSERT 
   router.post('/:id/comment', (req, res) => {
     var articleId = req.params.id;
     var author = req.body.author;
@@ -185,7 +185,7 @@ module.exports = function(app, conn, upload) {
         res.redirect('/news/' + articleId);
       }
     });
-  });
+  });*/
 
 
   return router;

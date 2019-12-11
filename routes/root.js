@@ -19,7 +19,7 @@ router.get('/drawing', (req, res) => {
 
 
   
-  /* root */
+  /* index */
   router.get('/index', (req, res) => {
     res.render('news/index');
   });

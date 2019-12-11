@@ -37,6 +37,22 @@ CREATE TABLE `article` (
 ) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
+DROP TABLE IF EXISTS `news_stack`.`comment`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+ SET character_set_client = utf8mb4 ;
+CREATE TABLE `news_stack`.`comment` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `category` int(11) NOT NULL,
+  `title` varchar(100) NOT NULL,
+  `desc` text NOT NULL,
+  `author` varchar(30) NOT NULL,
+  `upload` varchar(255) DEFAULT NULL,
+  `inserted` datetime NOT NULL,
+  `updated` datetime DEFAULT NULL,
+  KEY `category_idx` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
 --
 -- Dumping data for table `article`
 --
