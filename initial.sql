@@ -67,7 +67,7 @@ CREATE TABLE `category` (
 
 LOCK TABLES `category` WRITE;
 /*!40000 ALTER TABLE `category` DISABLE KEYS */;
-INSERT INTO `category` VALUES (1,'사회'),(2,'정치'),(3,'경제'),(4,'국제'),(5,'문화'),(6,'IT');
+INSERT INTO `category` VALUES (1,'클래스101'),(2,'탈잉'),(3,'프립'),(4,'솜씨당'),(5,'기타'),(6,'기타');
 /*!40000 ALTER TABLE `category` ENABLE KEYS */;
 UNLOCK TABLES;
 
