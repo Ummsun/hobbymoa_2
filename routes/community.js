@@ -4,9 +4,37 @@ module.exports = function(app, conn, upload) {
     var category = require('../lib/category.js');
   
     /* 목록 */
-    router.get('/', (req, res) => {
-     
+  router.get('/', (req, res) => {
+    var selectedCategory = req.query.category;
+    if (!selectedCategory) {
+      selectedCategory = "";
+    }
+
+    category.get(conn, function(categoryList) {
+
+      var sql = "SELECT a.*, c.title as `category_title` "
+                + "FROM community a "
+                + "INNER JOIN category c on a.category = c.id "
+      var sqlParam = []
+
+      if (selectedCategory) {
+        sql += "WHERE a.category = ? "
+        sqlParam.push(selectedCategory);
+      }
+
+      conn.query(sql, sqlParam, function(err, news, fields){
+        if(err){
+          res.status(500).send('Internal Server Error: ' + err);
+        } else {
+          res.render('news/community', {
+            news:news,
+            category: categoryList,
+            selectedCategory: selectedCategory
+          });
+        }
+      });
     });
+  });
   
     /* 추가 */
     router.get('/add', (req, res) => {
