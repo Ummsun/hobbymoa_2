@@ -28,55 +28,36 @@ div {font-family: 'Nanum Gothic Coding', monospace;}
 
   <h1>중고장터</h1>
 
-  <table class="table">
-    <thead class="thead-dark">
-      <tr>
-        <th scope="col">Id</th>
-        <th scope="col">Category</th>
-        <th scope="col">작성자</th>
-        <th scope="col">제목</th>
-        <th scope="col">게시일</th>
-        
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <th scope="row">1</th>
-        <td>Mark</td>
-        <td>Mark</td>
-        <td>Otto</td>
-        <td>@mdo</td>
-      </tr>
-      <tr>
-        <th scope="row">2</th>
-        <td>Jacob</td>
-        <td>Mark</td>
-        <td>Thornton</td>
-        <td>@fat</td>
-      </tr>
-      <tr>
-        <th scope="row">3</th>
-        <td>Larry</td>
-        <td>Mark</td>
-        <td>the Bird</td>
-        <td>@twitter</td>
-      </tr>
-      <tr>
-        <th scope="row">4</th>
-        <td>Larry</td>
-        <td>Mark</td>
-        <td>the Bird</td>
-        <td>@twitter</td>
-      </tr>
-      <tr>
-        <th scope="row">5</th>
-        <td>Larry</td>
-        <td>Mark</td>
-        <td>the Bird</td>
-        <td>@twitter</td>
-      </tr>
-    </tbody>
-  </table>
+  <% if (news.length>0) { %>
+    <ul class="list-unstyled">
+      <% for(var i=0; i < news.length; i++) { %>
+      <li class="media">
+  
+        <% if (typeof news[i].upload !== 'undefined' && news[i].upload) { %>
+          <a href="/news/<%= news[i].id %>"><img class="mr-3" src="/uploads/<%= news[i].upload %>"width="128"></a>
+        <% } %>
+  
+        <div class="media-body">
+          <h5 class="mt-0 mb-1"><a href="/news/<%= news[i].id %>"><%= news[i].title %></a></h5>
+          <%= news[i].category_title %> /
+          <%= news[i].author %>
+        </div>
+      </li>
+      <% } %>
+    </ul>
+  
+    <% } else { %>
+      <div class="card">
+        <div class="card-header">
+          Alert!
+        </div>
+        <div class="card-body">
+          <blockquote class="blockquote mb-0">
+            <p>Please add new article</p>
+          </blockquote>
+        </div>
+      </div>
+    <% } %>
   
   
   
