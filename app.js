@@ -55,9 +55,9 @@ app.use('/static', express.static('static'));
 var root = require('./routes/root.js')(app, conn, upload);
 app.use('/', root);
 
-/* news app */
-var news = require('./routes/news.js')(app, conn, upload);
-app.use('/news', news);
+/* community app */
+var community = require('./routes/community.js')(app, conn, upload);
+app.use('/community', community);
 
 /* account app */
 var account = require('./routes/account.js')(app, conn, upload);

@@ -13,7 +13,7 @@ module.exports = function(app, conn, upload) {
       category.get(conn, function(categoryList) {
   
         var sql = "SELECT a.*, c.title as `category_title` "
-                  + "FROM article a "
+                  + "FROM community a "
                   + "INNER JOIN category c on a.category = c.id "
         var sqlParam = []
   
@@ -26,8 +26,8 @@ module.exports = function(app, conn, upload) {
           if(err){
             res.status(500).send('Internal Server Error: ' + err);
           } else {
-            res.render('news/index', {
-              news:news,
+            res.render('community/index', {
+              community:community,
               category: categoryList,
               selectedCategory: selectedCategory
             });
@@ -39,7 +39,7 @@ module.exports = function(app, conn, upload) {
     /* 추가 */
     router.get('/add', (req, res) => {
       category.get(conn, function(categoryList) {
-        res.render('news/add', {
+        res.render('community/add', {
           category: categoryList
         });
       });
@@ -70,7 +70,7 @@ module.exports = function(app, conn, upload) {
   
       category.get(conn, function(categoryList) {
         var sql = "SELECT a.*, c.title as `category_title` "
-                  + "FROM article a "
+                  + "FROM community a "
                   + "INNER JOIN category c on a.category = c.id "
                   + "WHERE a.id=?";
   
@@ -79,7 +79,7 @@ module.exports = function(app, conn, upload) {
             console.log(err);
             res.status(500).send('Internal Server Error: ' + err);
           } else {
-            res.render('news/edit', {news:news[0], category: categoryList});
+            res.render('community/edit', {news:news[0], category: categoryList});
           }
         });
       });
@@ -94,10 +94,10 @@ module.exports = function(app, conn, upload) {
       var author = req.body.author;
   
       if (typeof req.file !== 'undefined') {
-        var sql = 'UPDATE article SET title = ?, `category` = ?, `desc`= ?, `author` = ?, `updated` = now(), `upload` = ? WHERE id = ?;';
+        var sql = 'UPDATE community SET title = ?, `category` = ?, `desc`= ?, `author` = ?, `updated` = now(), `upload` = ? WHERE id = ?;';
         var sqlParam = [title, category, desc, author, req.file.filename, id]
       } else {
-        var sql = 'UPDATE article SET title = ?, `category` = ?, `desc`= ?, `author` = ?, `updated` = now() WHERE id = ?;';
+        var sql = 'UPDATE community SET title = ?, `category` = ?, `desc`= ?, `author` = ?, `updated` = now() WHERE id = ?;';
         var sqlParam = [title, category, desc, author, id]
       }
   
@@ -106,7 +106,7 @@ module.exports = function(app, conn, upload) {
           console.log(err);
           res.status(500).send('Internal Server Error: ' + err);
         } else {
-          res.redirect('/news/' + id);
+          res.redirect('/community/' + id);
         }
       });
     });
@@ -114,13 +114,13 @@ module.exports = function(app, conn, upload) {
     /* Delete confirmation */
     router.get('/:id/delete', (req, res) => {
       var id = req.params.id;
-      var sql = 'SELECT * FROM article WHERE id=?';
+      var sql = 'SELECT * FROM community WHERE id=?';
       conn.query(sql, [id], function(err, news, fields){
         if(err){
           console.log(err);
           res.status(500).send('Internal Server Error: ' + err);
         } else {
-          res.render('news/delete', {news:news[0]});
+          res.render('community/delete', {community:community[0]});
         }
       });
     });
@@ -129,13 +129,13 @@ module.exports = function(app, conn, upload) {
     router.post('/:id/delete', (req, res) => {
       var id = req.params.id;
   
-      var sql = 'DELETE FROM article WHERE id = ?';
+      var sql = 'DELETE FROM community WHERE id = ?';
       conn.query(sql, [id], function(err, result, fields){
         if(err){
           console.log(err);
           res.status(500).send('Internal Server Error: ' + err);
         } else {
-          res.redirect('/news/');
+          res.redirect('/community/');
         }
       });
     });
@@ -144,7 +144,7 @@ module.exports = function(app, conn, upload) {
     router.get('/:id', (req, res) => {
       var id = req.params.id;
       var sql = "SELECT a.*, c.title as `category_title` "
-                + "FROM article a "
+                + "FROM community a "
                 + "INNER JOIN category c on a.category = c.id "
                 + "WHERE a.id=?";
   
@@ -153,19 +153,19 @@ module.exports = function(app, conn, upload) {
           console.log(err);
           res.status(500).send('Internal Server Error: ' + err);
   
-        } else {
-          var commentSql = "SELECT * FROM comment WHERE article_id = ?";
+        } /*else {
+          var commentSql = "SELECT * FROM comment WHERE community_id = ?";
           conn.query(commentSql, [id], function(err, comments, fields){
             if(err){
               console.log(err);
               res.status(500).send('Internal Server Error: ' + err);
-            } else {
-              res.render('news/detail', {
+            } */else {
+              res.render('community/detail', {
                 news: news[0],
                 comments: comments
               });
-            }
-          });
+            /*}
+          });*/
         }
       });
     });

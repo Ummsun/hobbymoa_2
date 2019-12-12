@@ -29,9 +29,9 @@ router.get('/drawing', (req, res) => {
     res.render('news/baking');
   });
 
-  /*comment*/
-  router.get('/comment', (req, res) => {
-    res.render('news/comment');
+  /*community*/
+  router.get('/community', (req, res) => {
+    res.render('news/community');
   });
 
   return router;
