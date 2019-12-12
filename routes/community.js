@@ -92,7 +92,7 @@ module.exports = function(app, conn, upload) {
           console.log(err);
           res.status(500).send('Internal Server Error: ' + err);
         } else {
-          res.render('community/delete', {community:community[0]});
+          res.render('community/delete', {news:news[0]});
         }
       });
     });
