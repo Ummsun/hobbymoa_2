@@ -3,12 +3,10 @@
     <span class="navbar-toggler-icon"></span>
   </button>
   <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
-    <a class="navbar-brand" href="#"><img src="static/img/로고w하비모아.jpg"></a>
+    <a class="navbar-link" href="/index"><img src="static/img/로고w하비모아.jpg"><span class="sr-only">(current)</span></a>
 
     <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-      <li class="nav-item active">
-        <a class="nav-link" href="/index">Home <span class="sr-only">(current)</span></a>
-      </li>
+      <li class="nav-item active"></li>
       <% if(locals.user && locals.user.isAdmin == 1) { %>
         <li class="nav-item active">
           <a class="nav-link" href="/admin">Admin</a>
