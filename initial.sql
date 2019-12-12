@@ -37,10 +37,10 @@ CREATE TABLE `article` (
 ) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
-DROP TABLE IF EXISTS `news_stack`.`comment`;
+DROP TABLE IF EXISTS `news_stack`.`community`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
  SET character_set_client = utf8mb4 ;
-CREATE TABLE `news_stack`.`comment` (
+CREATE TABLE `news_stack`.`community` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `category` int(11) NOT NULL,
   `title` varchar(100) NOT NULL,

@@ -5,41 +5,13 @@ module.exports = function(app, conn, upload) {
   
     /* 목록 */
     router.get('/', (req, res) => {
-      var selectedCategory = req.query.category;
-      if (!selectedCategory) {
-        selectedCategory = "";
-      }
-  
-      category.get(conn, function(categoryList) {
-  
-        var sql = "SELECT a.*, c.title as `category_title` "
-                  + "FROM community a "
-                  + "INNER JOIN category c on a.category = c.id "
-        var sqlParam = []
-  
-        if (selectedCategory) {
-          sql += "WHERE a.category = ? "
-          sqlParam.push(selectedCategory);
-        }
-  
-        conn.query(sql, sqlParam, function(err, news, fields){
-          if(err){
-            res.status(500).send('Internal Server Error: ' + err);
-          } else {
-            res.render('community/index', {
-              community:community,
-              category: categoryList,
-              selectedCategory: selectedCategory
-            });
-          }
-        });
-      });
+     
     });
   
     /* 추가 */
     router.get('/add', (req, res) => {
       category.get(conn, function(categoryList) {
-        res.render('community/add', {
+        res.render('news/add', {
           category: categoryList
         });
       });
@@ -120,7 +92,7 @@ module.exports = function(app, conn, upload) {
           console.log(err);
           res.status(500).send('Internal Server Error: ' + err);
         } else {
-          res.render('community/delete', {community:community[0]});
+          res.render('community/delete', {news:news[0]});
         }
       });
     });
@@ -162,7 +134,7 @@ module.exports = function(app, conn, upload) {
             } */else {
               res.render('community/detail', {
                 news: news[0],
-                comments: comments
+                
               });
             /*}
           });*/
