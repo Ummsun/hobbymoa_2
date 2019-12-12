@@ -1,0 +1,100 @@
+<!--폰트-->
+<link href="https://fonts.googleapis.com/css?family=Do+Hyeon|Nanum+Gothic+Coding&display=swap" rel="stylesheet">
+<style>
+div {font-family: 'Nanum Gothic Coding', monospace;}
+</style>
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <title>Index</title>
+  </head>
+  <body>
+
+<%- include('includes/header'); -%>
+<%- include('includes/nav'); -%>
+<h2>　전체 클래스</h2>  
+<!-- 폰트 설정 -->
+<style>
+h2 {font-family: 'Nanum Gothic Coding', monospace;}
+</style>
+
+    <div class="input-group">
+        <input type="text" class="form-control" placeholder="검색 키워드를 입력하세요!">
+        <span class="input-group-btn">
+          <button class="btn btn-secondary" type="button">찾기</button>
+        </span>
+      </div>
+
+<div style="display: block; width:1200px; margin:0 auto;  position:relative;">
+    <div class="row">
+        <div class="coll-sm-3">
+    <div>
+      <div class="card" style="width: 18rem;" >
+        <a href="/baking">
+        <img src="static/img/인덱스베이킹.jpg" style="width: auto; height: 18rem;" class="card-img-top" alt="...">
+        <div class="card-body">
+          <p class="card-text">베이킹</p>
+          </a>
+        </div>
+      
+      </div>   
+    </div> 
+      </div>
+              
+      <div class="coll-sm-3">
+      <div>
+        <div class="card" style="width: 18rem;" >
+          <a href="/surfing">
+          <img src="static/img/인덱스서핑.jpg" style="width: auto; height: 18rem;" class="card-img-top" alt="...">
+          <div class="card-body">
+            <p class="card-text">서핑</p>
+          </a>  
+          </div>
+        </div>   
+      </div> 
+        </div>
+    
+      <div class="coll-sm-3">
+        <div>
+          <div class="card" style="width: 18rem;" >
+            <a href="/drawing">
+            <img src="static/img/인덱스드로잉.jpg" style="width: auto; height: 18rem;" class="card-img-top" alt="...">
+            <div class="card-body">
+              <p class="card-text">드로잉 </p>
+            </a>
+            </div>
+          </div>   
+        </div> 
+        </div>
+
+      <div class="coll-sm-3">
+    <div>
+      <div class="card" style="width: 18rem;">
+        <a href="/community">
+        <img src="static/img/중고장터.jpg" style="width: 18rem; height: 18rem;" class="card-img-top" alt="...">
+        <div class="card-body">
+          <p class="card-text">중고장터 바로가기</p>
+        </a>
+        </div>
+      </div>   
+    </div> 
+        </div>
+  </div>
+</div>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  </body>
+</html>
+<%- include('includes/footer'); -%>

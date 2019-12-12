@@ -1,0 +1,50 @@
+<%- include('includes/header'); -%>
+<%- include('includes/nav'); -%>
+
+<!--폰트-->
+<link href="https://fonts.googleapis.com/css?family=Do+Hyeon|Nanum+Gothic+Coding&display=swap" rel="stylesheet">
+<style>
+div {font-family: 'Nanum Gothic Coding', monospace;}
+</style>
+
+<div class="container">
+
+<% if (news) { %>
+  <div class="row">
+    <div class="col">
+      <h1><%= news.title %></h1>
+      <h5>수강 클래스: <%= news.category_title %> / 작성자: <%= news.author %></h5>
+      <p>
+        입력: <%= moment(news.inserted).format('YYYY-MM-DD h:mm:ss a') %>
+        <% if (news.updated) { %>/ 수정: <%= moment(news.updated).format('YYYY-MM-DD h:mm:ss a') %><% } %>
+      </p>
+      <hr>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col" style="white-space: pre-line;">
+      <%- news.desc %>
+    </div>
+    <div class="col">
+      <% if (typeof news.upload !== 'undefined' && news.upload) { %>
+        <img src="/uploads/<%= news.upload %>">
+      <% } %>
+    </div>
+    
+  </div>
+ 
+  <div class="btn-toolbar justify-content-between" role="toolbar" aria-label="Toolbar with button groups">
+    <div class="btn-group" role="group" aria-label="First group">
+      <a href="/community/<%= news.id %>/edit" class="btn btn-outline-primary">수정</a>
+      <a href="/community/<%= news.id %>/delete" class="btn btn-outline-secondary">삭제</a>
+    </div>
+    <div class="input-group">
+      <a href="/community/" class="btn btn-outline-info">목록</a>
+    </div>
+  </div>
+<% } else { %>
+  <p>Not exist</p>
+<% } %>
+
+</div>
+<%- include('includes/footer'); -%>

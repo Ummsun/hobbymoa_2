@@ -34,5 +34,7 @@ router.get('/drawing', (req, res) => {
     res.render('news/community');
   });
 
+  
+
   return router;
 };
