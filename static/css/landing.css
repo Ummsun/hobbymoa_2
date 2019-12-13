@@ -19,8 +19,8 @@ body {
    padding:0;
  }
 button {
-  height:100px;
-  width: 1450px;
+  height:80px;
+  width:1850px;
   background:#8f71ff;
   border:0;
   color:#ffffff;
@@ -30,10 +30,10 @@ button {
 
 /* Header */
   header{
-    background:#ffffff;
+    background:rgb(255, 255, 255);
     color:#000000;
-    padding-top: 70px;
-    min-height:70px;
+    padding-top: 30px;
+    min-height:10px;
   }
 
 header #branding{
@@ -57,48 +57,25 @@ header a:hover{
 
 /*취미 클래스 이곳에 다모아!*/
 #showcase h1{
-  margin-top:20px;
+  margin-top:10px;
   font-size:40px;
   margin-bottom:10px;
   color:#000000;
   float:center;
 }
+
 /*하비모아 시작하기*/
 #start_button{
   padding-top:200px;
   color:#8f71ff;
 }
 
-
-/*boxes*/
-#boxes {
-  margin-top:120px;
-  margin-bottom: 200px;
-
-}
-#boxes img:hover {
-  transform: scale(2, 2);
-}
-#boxes .box{
-  float: center;
-  width:50%;
-  padding:40px 5px 20px 5px;
-  border-style: solid;
-  border-width: thick;
-  border-color: #8f71ff;
-}
-
-#boxes .box img{
-  width:120px;
-}
-
 footer{
   padding:20px;
-  margin-top:50px;
+  margin-top:10px;
   color:#ffffff;
   background-color:#ffffff;
   text-align: center;
   font-family: sans-serif;
   font-size: 8px;
 }
-

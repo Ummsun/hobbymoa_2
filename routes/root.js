@@ -17,8 +17,6 @@ router.get('/drawing', (req, res) => {
   res.render('news/drawing');
 });
 
-
-  
   /* index */
   router.get('/index', (req, res) => {
     res.render('news/index');
@@ -33,8 +31,6 @@ router.get('/drawing', (req, res) => {
   router.get('/community', (req, res) => {
     res.render('news/community');
   });
-
-  
 
   return router;
 };
