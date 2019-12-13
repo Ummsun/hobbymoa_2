@@ -20,7 +20,7 @@ var mysql = require('mysql');
 var conn = mysql.createConnection({
   host     : 'localhost',
   user     : 'root',
-  password : 'fineheart97',
+  password : 'mysql',
   database : 'news_stack',
   port: 3306  /* 8889 on Mac client */
 });
@@ -57,10 +57,8 @@ app.use('/', root);
 
 /* community app */
 var community = require('./routes/community.js')(app, conn, upload);
-/*app.use('/community', community);*/
-app. get('/community', (req, res) => {
-  res.render('/community')
-});
+app.use('/community', community);
+
 
 
 /* account app */
