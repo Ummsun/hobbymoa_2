@@ -4,7 +4,7 @@ module.exports = function(app, conn, upload) {
   var category = require('../lib/category.js');
 
   /* 목록 */
-  router.get('/', (req, res) => {
+  router.get('/community', (req, res) => {
     var selectedCategory = req.query.category;
     if (!selectedCategory) {
       selectedCategory = "";
@@ -79,7 +79,7 @@ module.exports = function(app, conn, upload) {
           console.log(err);
           res.status(500).send('Internal Server Error: ' + err);
         } else {
-          res.render('news/edit', {news:news[0], category: categoryList});
+          res.render('community/edit', {news:news[0], category: categoryList});
         }
       });
     });
@@ -120,7 +120,7 @@ module.exports = function(app, conn, upload) {
         console.log(err);
         res.status(500).send('Internal Server Error: ' + err);
       } else {
-        res.render('news/delete', {news:news[0]});
+        res.render('community/delete', {news:news[0]});
       }
     });
   });
