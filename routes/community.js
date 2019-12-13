@@ -153,19 +153,19 @@ module.exports = function(app, conn, upload) {
         console.log(err);
         res.status(500).send('Internal Server Error: ' + err);
 
-      } else {
+      } /*else {
         var commentSql = "SELECT * FROM comment WHERE community_id = ?";
         conn.query(commentSql, [id], function(err, comments, fields){
           if(err){
             console.log(err);
             res.status(500).send('Internal Server Error: ' + err);
-          } else {
+          } */else {
             res.render('news/detail', {
               news: news[0],
-              /*comments: comments*/
+              
             });
-          }
-        });
+          /*}
+        });*/
       }
     });
   });

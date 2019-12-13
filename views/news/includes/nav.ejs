@@ -6,7 +6,25 @@
     <a class="navbar-link" href="/index"><img src="static/img/로고w하비모아.jpg"><span class="sr-only">(current)</span></a>
 
     <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-      <li class="nav-item active"></li>
+        <li class="nav-item active">
+          <div class="container">
+            <div class="row">
+              <div class="col-sm-3">
+                <a class="nav-link" href="/baking">베이킹 <span class="sr-only">(current)</span></a>
+              </div>
+              <div class="col-sm-3">
+                <a class="nav-link" href="/surfing">서핑 <span class="sr-only">(current)</span></a>  
+              </div>
+              <div class="col-sm-3">
+                <a class="nav-link" href="/drawing">드로잉 <span class="sr-only">(current)</span></a>
+                </div>
+                <div class="col-sm-3" style="width: 10rem">
+                  <a class="nav-link" href="/community">중고장터<span class="sr-only">(current)</span></a>
+                </div>
+              </div>
+            </div>
+             
+          </li>
       <% if(locals.user && locals.user.isAdmin == 1) { %>
         <li class="nav-item active">
           <a class="nav-link" href="/admin">Admin</a>

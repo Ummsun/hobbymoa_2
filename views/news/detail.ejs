@@ -22,14 +22,15 @@ div {font-family: 'Nanum Gothic Coding', monospace;}
     </div>
   </div>
   <div class="row">
+    <div class="col">
+          <% if (typeof news.upload !== 'undefined' && news.upload) { %>
+            <img src="/uploads/<%= news.upload %>" style="width: auto; height: 18rem;">
+          <% } %>
+        </div>
     <div class="col" style="white-space: pre-line;">
       <%- news.desc %>
     </div>
-    <div class="col">
-      <% if (typeof news.upload !== 'undefined' && news.upload) { %>
-        <img src="/uploads/<%= news.upload %>">
-      <% } %>
-    </div>
+    
     
   </div>
  
@@ -39,7 +40,7 @@ div {font-family: 'Nanum Gothic Coding', monospace;}
       <a href="/news/<%= news.id %>/delete" class="btn btn-outline-secondary">삭제</a>
     </div>
     <div class="input-group">
-      <a href="/news/" class="btn btn-outline-info">목록</a>
+      <a href="/community/" class="btn btn-outline-info">목록</a>
     </div>
   </div>
 <% } else { %>
