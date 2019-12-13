@@ -2,13 +2,13 @@ module.exports = function(app, conn, upload) {
     var express = require('express');
     var router = express.Router();
     var category = require('../lib/category.js');
-  
+   
     /* 목록 */
-  router.get('/', (req, res) => {
+  /*router.get('/', (req, res) => {
     var selectedCategory = req.query.category;
     if (!selectedCategory) {
       selectedCategory = "";
-    }
+    
 
     category.get(conn, function(categoryList) {
 
@@ -27,14 +27,31 @@ module.exports = function(app, conn, upload) {
           res.status(500).send('Internal Server Error: ' + err);
         } else {
           res.render('news/community', {
-            news:news,
+            'community':community,
             category: categoryList,
             selectedCategory: selectedCategory
           });
         }
       });
     });
-  });
+  }});*/
+
+  router.get('/', (req,res) => {
+    var sql = 'SELECT * FROM community';
+    conn.query(sql, [], function (err,community, fields){
+      if(err){
+        console.log(err);
+        res.status(500).send('Internal Server Error' + err);
+
+      } else{
+        res.render('news/community', {
+          'community': community
+        })
+      }
+    })
+  })
+  
+
   
     /* 추가 */
     router.get('/add', (req, res) => {

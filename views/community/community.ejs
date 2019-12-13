@@ -28,19 +28,19 @@ div {font-family: 'Nanum Gothic Coding', monospace;}
 
   <h1>중고장터</h1>
 
-  <% if (news.length>0) { %>
+  <% if (community.length>0) { %>
     <ul class="list-unstyled">
-      <% for(var i=0; i < news.length; i++) { %>
+      <% for(var i=0; i < community.length; i++) { %>
       <li class="media">
   
-        <% if (typeof news[i].upload !== 'undefined' && news[i].upload) { %>
-          <a href="/news/<%= news[i].id %>"><img class="mr-3" src="/uploads/<%= news[i].upload %>"width="128"></a>
+        <% if (typeof community[i].upload !== 'undefined' && community[i].upload) { %>
+          <a href="/community/<%= community[i].id %>"><img class="mr-3" src="/uploads/<%= community[i].upload %>"width="128"></a>
         <% } %>
   
         <div class="media-body">
-          <h5 class="mt-0 mb-1"><a href="/news/<%= news[i].id %>"><%= news[i].title %></a></h5>
-          <%= news[i].category_title %> /
-          <%= news[i].author %>
+          <h5 class="mt-0 mb-1"><a href="/community/<%= community[i].id %>"><%= community[i].title %></a></h5>
+          <%= community[i].category_title %> /
+          <%= community[i].author %>
         </div>
       </li>
       <% } %>

@@ -57,7 +57,11 @@ app.use('/', root);
 
 /* community app */
 var community = require('./routes/community.js')(app, conn, upload);
-app.use('/community', community);
+/*app.use('/community', community);*/
+app. get('/community', (req, res) => {
+  res.render('/community')
+});
+
 
 /* account app */
 var account = require('./routes/account.js')(app, conn, upload);
